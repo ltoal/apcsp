@@ -25,3 +25,18 @@ def handles_one_arg():
 def handles_too_many_arg():
     """typecastingCL.c handles one argument"""
     check50.run("./typecastingCL hello 2 hello").exit(1)
+    
+@check50.check(compiles)
+def handles_lowercase_inputs():
+    """typecasting.CL handles an all-lowercase input"""
+    check50.run("./typecastingCL computer 1").stdout("dpnqvufs").exit(0)
+    
+@check50.check(compiles)
+def handles_uppercase_inputs():
+    """typecasting.CL handles an all-lowercase input"""
+    check50.run("./typecastingCL COMPUTER 5").stdout("HTRUZYJW").exit(0)
+
+@check50.check(compiles)
+def handles_mixed_inputs():
+    """typecasting.CL handles a mix of uppercase/lowercase/symbols"""
+    check50.run("./typecastingCL Hey!! 3").stdout("Kh|$$").exit(0)
