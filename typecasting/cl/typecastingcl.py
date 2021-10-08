@@ -16,8 +16,8 @@ def compiles():
 def handles_no_arg():
     """typecastingCL.c handles no arguments"""
     out = check50.run("./typecastingCL").stdout()
-    if re.search("Invalid input", out):
-        return
+    if not re.search("Invalid input", out):
+        raise check50.Mismatch("[a descriptive error message including 'Invalid input']", out)
     check50.run("./typecastingCL").exit(1)
     
 @check50.check(compiles)
@@ -30,7 +30,7 @@ def handles_one_arg():
     
 @check50.check(compiles)
 def handles_too_many_arg():
-    """typecastingCL.c handles one argument"""
+    """typecastingCL.c handles too many arguments"""
     out = check50.run("./typecastingCL hello 2 hello").stdout()
     if not re.search("Invalid input", out):
         raise check50.Mismatch("[a descriptive error message including 'Invalid input']", out)
