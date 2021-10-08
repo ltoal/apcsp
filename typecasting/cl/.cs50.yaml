@@ -1,2 +1,2 @@
 check50: 
-  checks: __init.py__
+  checks: typecastingcl.py
