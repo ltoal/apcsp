@@ -2,4 +2,6 @@ check50:
   checks: typecastingcl.py
 
 submit50:
-  files: *check50_files
+  files: 
+  - !exclude "*"
+  - !require typecastingCL.c
