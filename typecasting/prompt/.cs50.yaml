@@ -1,1 +1,2 @@
-#todo
+check50: 
+  checks: typecastingprompt.py
