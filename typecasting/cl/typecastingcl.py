@@ -1,5 +1,6 @@
 import check50
 import check50.c
+import re
 
 @check50.check()
 def exists():
@@ -14,16 +15,25 @@ def compiles():
 @check50.check(compiles)
 def handles_no_arg():
     """typecastingCL.c handles no arguments"""
+    out = check50.run("./typecastingCL hello 2 hello").stdout()
+    if re.search("Invalid input", out):
+        return
     check50.run("./typecastingCL").exit(1)
     
 @check50.check(compiles)
 def handles_one_arg():
     """typecastingCL.c handles one argument"""
+    out = check50.run("./typecastingCL hello 2 hello").stdout()
+    if re.search("Invalid input", out):
+        return
     check50.run("./typecastingCL A").exit(1)
     
 @check50.check(compiles)
 def handles_too_many_arg():
     """typecastingCL.c handles one argument"""
+    out = check50.run("./typecastingCL hello 2 hello").stdout()
+    if re.search("Invalid input", out):
+        return
     check50.run("./typecastingCL hello 2 hello").exit(1)
     
 @check50.check(compiles)
