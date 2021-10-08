@@ -1,2 +1,5 @@
 check50: 
   checks: typecastingprompt.py
+
+submit50:
+  files: typecastingPrompt.c
