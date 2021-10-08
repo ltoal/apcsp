@@ -1,0 +1,27 @@
+import check50
+import check50.c
+
+@check50.check()
+def exists():
+    """typecastingCL.c exists"""
+    check50.exists("typecastingCL.c")
+    
+@check50.check(exists)
+def compiles():
+    """typecastingCL.c compiles"""
+    check50.c.compile("typecastingCL.c", lcs50=True)
+    
+@check50.check(compiles)
+def handles_no_arg():
+    """typecastingCL.c handles no arguments"""
+    check50.run("./typecastingCL").exit(1)
+    
+@check50.check(compiles)
+def handles_one_arg():
+    """typecastingCL.c handles one argument"""
+    check50.run("./typecastingCL A").exit(1)
+    
+@check50.check(compiles)
+def handles_too_many_arg():
+    """typecastingCL.c handles one argument"""
+    check50.run("./typecastingCL hello 2 hello").exit(1)
