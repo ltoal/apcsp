@@ -1,0 +1,7 @@
+
+
+check50: 
+  checks: restaurant.py
+
+submit50:
+  files: restaurant.c
